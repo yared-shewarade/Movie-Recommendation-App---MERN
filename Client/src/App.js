@@ -1,22 +1,63 @@
-// src/App.js
-import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Login from './Login';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './Home';
-import MovieForm from './MovieForm';
-import MoviePrompt from './MoviePrompt';
-import RecommendationResults from './RecommendationResults';
+import FavoriteMovies from './FavoriteMovies';
+import CategoriesSelection from './CategoriesSelection';
+import MovieRecommendations from './MovieRecommendations';
 
 function App() {
+  const [favoriteMovies, setFavoriteMovies] = useState([]);
+  const [selectedCategories, setSelectedCategories] = useState([]);
+
+  const handleFavoriteMoviesNext = (movies) => {
+    setFavoriteMovies(movies);
+  };
+
+  const handleCategoriesNext = (categories) => {
+    setSelectedCategories(categories);
+  };
+
   return (
     <Router>
-      <div className="App">
+      <div className="app">
         <Switch>
-          <Route exact path="/" component={Login} />
-          <Route path="/home" component={Home} />
-          <Route path="/movie-form" component={MovieForm} />
-          <Route path="/movie-prompt" component={MoviePrompt} />
-          <Route path="/recommendation-results" component={RecommendationResults} />
+          <Route
+            path="/"
+            exact
+            render={(props) => (
+              <Home {...props} onNavigate={() => props.history.push('/favorites')} />
+            )}
+          />
+          <Route
+            path="/favorites"
+            render={(props) => (
+              <FavoriteMovies
+                {...props}
+                onNext={handleFavoriteMoviesNext}
+                onNavigate={() => props.history.push('/categories')}
+              />
+            )}
+          />
+          <Route
+            path="/categories"
+            render={(props) => (
+              <CategoriesSelection
+                {...props}
+                onNext={handleCategoriesNext}
+                onNavigate={() => props.history.push('/recommendations')}
+              />
+            )}
+          />
+          <Route
+            path="/recommendations"
+            render={(props) => (
+              <MovieRecommendations
+                {...props}
+                favoriteMovies={favoriteMovies}
+                selectedCategories={selectedCategories}
+              />
+            )}
+          />
         </Switch>
       </div>
     </Router>
