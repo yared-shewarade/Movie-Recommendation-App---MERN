@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { generatePrompt as generateRecommendationPrompt } from '../api/api';
 
 function Recommendations() {
@@ -13,14 +13,14 @@ function Recommendations() {
   ];
 
   // Function to generate the ChatGPT prompt
-  const generatePrompt = async () => {
+  const generatePrompt = useCallback(async () => {
     try {
       const response = await generateRecommendationPrompt(userMovies);
       setPrompt(response.data.prompt);
     } catch (error) {
       console.error('Error generating prompt:', error);
     }
-  };
+  }, [userMovies]);
 
   // Function to copy the generated prompt to the clipboard
   const copyPromptToClipboard = () => {
@@ -35,7 +35,7 @@ function Recommendations() {
 
   useEffect(() => {
     generatePrompt();
-  }, []); // Generate the prompt when the component mounts
+  }, [generatePrompt]); // Include generatePrompt in the dependency array
 
   return (
     <div className="recommendations-container">
