@@ -44,7 +44,7 @@ The code is organized into two main directories: `backend` and `frontend`.
 
 ### Backend
 
-- @@**config/database.js:**@@ This file contains the configuration settings for the database used by the application.
+- '''diff +@@**config/database.js:**@@''' This file contains the configuration settings for the database used by the application.
 
 - **models/Movie.js:** The `Movie` model defines the schema for storing movie data in the database.
 
