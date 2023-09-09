@@ -1,13 +1,20 @@
+const { configDotenv } = require('dotenv');
 const express = require('express');
 const mongoose = require('mongoose'); // Import Mongoose
 const routes = require('./routes'); // Import your routes
 const app = express();
 const port = process.env.PORT || 3001;
 
+// Load the environment variables from .env file
+configDotenv.config();
+
+// Access the MongoDB URL from process.env
+const mongoDB_URL = process.env.MONGODB_URL;
+
 // Connect to MongoDB
 (async () => {
   try {
-    await mongoose.connect('mongodb+srv://yarlov21:Michael12@cs628yared.zq3uz9e.mongodb.net/?retryWrites=true&w=majority', {
+    await mongoose.connect(mongoDB_URL, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });

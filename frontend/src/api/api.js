@@ -2,7 +2,7 @@
 import axios from 'axios';
 
 // Adjust the base URL as needed
-const BASE_URL = '/api'; 
+const BASE_URL = 'http://localhost:3000/api'; 
 
 export const getMovies = () => {
   return axios.get(`${BASE_URL}/movies`)
