@@ -6,6 +6,33 @@ The Movie Recommendation App is a web application that allows users to manage th
 
 The code is organized into two main directories: `backend` and `frontend`.
 
+                            Movie-Recommendation-WebApp---MERN (root directory)
+                            │
+                            ├── backend (Backend Node.js Application)
+                            │   ├── config
+                            │   │   └── database.js        // Database configuration
+                            │   ├── models
+                            │   │   └── Movie.js           // Movie database model schema
+                            │   ├── routes.js              // API routes and handlers
+                            │   ├── server.js              // Backend server entry point
+                            │
+                            ├── frontend (Frontend React Application)
+                            │   ├── src
+                            │   │   ├── components
+                            │   │   │   ├── AddMovies.js        // Add new movies to the movie list
+                            │   │   │   ├── Contacts.js         // Contact and support information
+                            │   │   │   ├── Favorites.js        // Manage user's favorite movies
+                            │   │   │   ├── Home.js             // Landing page for the movie app
+                            │   │   │   ├── Recommendations.js  // Generate ChatGPT prompts and copy them
+                            │   │   │   └── App.js              // Overall app structure and routing
+                            │   │   ├── api
+                            │   │   │   └── api.js              // Handles frontend-backend communication
+                            │   │   └── index.js                 // Entry point for the React app
+                            │   ├── package.json                 // Frontend dependencies and scripts
+                            ├── package.json                     // Backend dependencies and scripts
+                            ├── .env                             // Root-level environment variables shared between backend and frontend
+                            ├── .gitignore                       // Specify files and directories to ignore in Git
+
 ### Backend
 
 - **config/database.js:** This file contains the configuration settings for the database used by the application.
