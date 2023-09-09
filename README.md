@@ -4,7 +4,7 @@ The Movie Recommendation App is a web application that allows users to manage th
 
 # Authors
 
-This a team project for the CS628 Full Stack course and developed by:
+This a is team project for the CS628 Full Stack course and was developed by:
 
 - [Yared Shewarade](https://github.com/yared-shewarade)
 - [Mary Oh](https://github.com/maryoohhh)
