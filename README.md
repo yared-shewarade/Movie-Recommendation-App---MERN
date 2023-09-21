@@ -2,15 +2,6 @@
 
 The Movie Recommendation App is a web application that allows users to manage their favorite movies, get personalized movie recommendations using ChatGPT, and access contact and support information. This repository contains both the backend and frontend code, providing a complete movie management and recommendation system.
 
-# Authors
-
-This is a team project for the CS628 Full Stack course and was developed by:
-
-- [Yared Shewarade](https://github.com/yared-shewarade)
-- [Mary Oh](https://github.com/maryoohhh)
-- [Kip Tatum](https://github.com/KipTatumRepo)
-- [Nicole Hessner](https://github.com/CityUhessnern)
-
 ## Code Structure Organization
 
 The code is organized into two main directories: `backend` and `frontend`.
